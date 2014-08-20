@@ -9,3 +9,5 @@ A visualization of musical scores.
 A tool to answer those kind of questions, and to raise others.
 
 See the [Demo](http://davideoliveri.github.io/ScoreToChart/)
+
+![an example of charted score](Chopin_example.png)
