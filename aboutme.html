@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+	body {
+		padding-top: 50px;
+		padding-bottom: 20px;
+	}
+	</style>
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.css">
+
+
+	<script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+<body>
+
+<!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    	<div class="container">
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    				<span class="sr-only">Toggle navigation</span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    				<span class="icon-bar"></span>
+    			</button>
+    			<a class="navbar-brand" href="index.html">Score To Chart</a>
+    			<ul class="nav navbar-nav">
+    				<li>
+    					<a href="about.html">About this</a>
+    				</li>
+    				<li>
+    					<a href="aboutme.html">About me</a>
+    				</li>
+    			</ul>
+    		</div>
+
+    	</div>
+    </div> 
+    <div class="container">      	
+    	<div class="row">
+    		<div class="antefacto col-md-8 col-md-offset-2">
+    			<h2>Who am I?</h2>
+    			<div class="changing stop"></div>
+    			<p> <span class="identity">I wanted to be a musician</span></p>
+    			<p>I am a designer and front-end developer at <a href="http://www.zepko.com">Zepko</a> where I build interfaces, take care of user experience and do a lot of interesting things. Lately I've been working and enjoying a lot AngularJS.<br> On top of that I'm also learnign about IT security. Something really important nowdays and I consider myself lucky for working in such a nice place with talented people willing to share knowledge.</p>
+    			<p>As you may have seen above I always wanted to be a many things.<br> I've always been curious and never tired. Well sometimes I take break too!</p>
+    			<p>I had great teachers while studing in Palermo and in France.<br> So far I produced a few things like videos, animations, creative code, graphics, photos and also poetry, yes, poetry.</p>
+    			<p>Some traces of what I've been and what I am are on the web too. 
+    				<ul>
+    					<li><a href="http://vimeo.com/davideoliveri/videos">Videos on Vimeo</a> pretty much the beginning...</li>
+    					<li><a href="https://gibbon.co/davideoliveri">My playlists on gibbon.co</a> about data and UX/UI</li>
+    					<li><a href="http://davideoliveri.tumblr.com/search/processing">Tumblr</a> about <a href="http://processing.org">Processing</a> related work</li>
+    				</ul>    			
+    			</p>
+    			<p>You can find me on <a href="http://twitter.com/davideoliveri">Twitter</a>, <a href="https://plus.google.com/+DavideOliveriUX/">Google+</a>. Feel free to follow or write me!</p>    			
+    		</div>
+    	</div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.js"></script>
+    <script type="text/javascript">
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	    ga('create', 'UA-44117882-3', 'auto');
+	    ga('require', 'linkid', 'linkid.js');
+	    ga('require', 'displayfeatures');
+	    ga('send', 'pageview');
+	</script>
+
+  	<script type="text/javascript">
+	  	var myIds = ["I studied drama with good results", 
+	  	"I was VJ in a theater", "I was VJ in a disco", "I wanted to be a musician", "I am a crazy music lover", "I am a music maker (sometimes)", "I was a poet and I still look for the right word, the right balance", "I wanted to be a photographer", "I wanted to be an astronaut", "I never stop wishing", "I though I've built a perpetual motion machine, when I was 11"];
+	  	var count = 4;
+	  	var duration = 6000;
+	  	var interval = setInterval(animateIdentity, duration);
+	  	
+	  	$(".changing").click(function(){
+	  		if(interval){
+	  			clearInterval(interval);
+	  			interval = null;
+	  			$(".changing").toggleClass("play").toggleClass("stop");
+	  		} else {
+	  			interval = setInterval(animateIdentity, duration);
+	  			$(".changing").toggleClass("play").toggleClass("stop");
+	  		}
+	  	})
+
+	  	function animateIdentity(){
+	  		$(".identity").animate({opacity: 0}, 400, 
+	  			function(){
+		  			$(".identity").html(myIds[count++]);
+		  			$(".identity").animate({opacity: 1}, 360);
+				});
+	  		count = count%myIds.length;
+	  	}
+	</script>
+</body>
+</html>
