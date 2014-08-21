@@ -485,4 +485,7 @@ function saveSVG()
 	downloadLink.click();
 }
 
+destroyClickedElement = function(event) {
+    document.body.removeChild(event.target);
+};
 
