@@ -1,22 +1,18 @@
 var unalteredNotes = ["A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab"];
-
 var datanotes = [];
-var maxValue = -1; //modified in analyzeContent   
+var maxValue = -1; 
 var width = 1700, height = 600;
 var barWidth = 30;
-
 var pianoW = 1196;
 var pianoH = 100;
 var Hspacing = 20;
 var keyHeight = d3.scale.linear().range([10, height-pianoH-(Hspacing*8)]);
 var y = d3.scale.linear().range([height-pianoH, 20]);
-
 var chart;
-
 var notesToMIDI = [];
 var delayMultiplier = 0.2;
 var author = "Chopin";
-var scoreName = "Largo B 109";
+var scoreName = "Largo in E-flat 109";
 
 
 var localScores = ["musicxml/chopin/largo_b109.xml", 
@@ -152,7 +148,6 @@ function createFullWidthPiano(){
 			octave++;
 		}
 	}
-
 	//render black line
 	d3.select("#fullwidthpiano").select("svg").append("line")
 	.attr("x1", 0).attr("y1", height-pianoH)
@@ -166,8 +161,6 @@ function createFullWidthPiano(){
 
 
 function applyDataToPiano(notesAndValues){
-	//console.log(notesAndValues);
-	//console.log(maxValue);
 	keyHeight.domain([0, maxValue]);
 	var blackKeys = [];
 	var allKeys = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
@@ -295,15 +288,12 @@ function applyDataToPiano(notesAndValues){
 
 function countNotes(splitted){
 	var counted = [];
-
 	maxValue = -1;
 	notesToMIDI = []; // reset
 	$.each(splitted, function(index, octaveArray){
 		counted[index] = noteCount(octaveArray);
 	});
-	//console.log(maxValue); //maxValue is set inside noteCount, while counting
 	return counted;
-
 }
 
 function splitInOctaves(pitches){
@@ -311,16 +301,13 @@ function splitInOctaves(pitches){
 	for(var i=0; i<9; i++){
 		splitted[i] = [];
 	}
-	//console.log(splitted);
 	$.each(pitches, function(index, value){
-		//console.log(value);
 		var octave = $(value).find("octave");
 		var alter = $(value).find("alter");
 		var step = $(value).find("step");
 		var thisNote = "";
 
 		if(alter[0] != undefined ){
-			//console.log(alter[0].innerHTML);
 			switch(alter[0].innerHTML){
 				case "-1":
 				thisNote = previousNote(step[0].innerHTML);
@@ -340,7 +327,6 @@ function splitInOctaves(pitches){
 		}
 		splitted[parseInt(octave[0].innerHTML)].push(thisNote);
 	});
-	//console.log(splitted);
 	return splitted;
 }
 
@@ -372,7 +358,6 @@ function noteCount(arr) {
    			//check if the previous one starts with the same Letter (e.g. "Eb" and "E")
    			if( i != 0 && a[i-1].charAt(0) && a[i-1].charAt(0) == baseNote ){ // if the previous is the base of the altered...
    				//swap them and theyr value in array b[]
-   				//console.log("we must swap here "+thisNote+" "+a[i-1]);
    				var theBase = a[i-1];
    				a[i-1] = thisNote;
    				a[i] = theBase;
@@ -443,17 +428,13 @@ $("#scoreselector").change(function(){
 	d3.select("svg #scoretitle").transition().delay(100).attr("opacity", 0);
 
 	author = $("#scoreselector option:selected")[0].parentElement.label;
-	scoreName = $("#scoreselector option:selected")[0].innerHTML
-	
-	
-	
-
+	scoreName = $("#scoreselector option:selected")[0].innerHTML;
 })
 
 $("#delaychooser").change(function(event){
-	//console.log(event.target.value);
-	delayMultiplier = event.target.value;
+//	delayMultiplier = event.target.value; // useless for now...
 });
+
 
 $("#scoreselector").selectpicker();
 
@@ -466,16 +447,10 @@ function saveSVG()
 	var downloadLink = document.createElement("a");
 	downloadLink.download = fileNameToSaveAs;
 	downloadLink.innerHTML = "Download File";
-	if (window.webkitURL != null)
-	{
-		// Chrome allows the link to be clicked
-		// without actually adding it to the DOM.
+	if (window.webkitURL != null) {
 		downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
-	}
-	else
-	{
-		// Firefox requires the link to be added to the DOM
-		// before it can be clicked.
+	} else {
+		
 		downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
 		downloadLink.onclick = destroyClickedElement;
 		downloadLink.style.display = "none";
