@@ -376,7 +376,7 @@ function noteCount(arr) {
 
 function nextNote(step){
 	var pos = unalteredNotes.indexOf(step);
-	if(pos < unalteredNotes.length-2){
+	if(pos < unalteredNotes.length-1){
 		return unalteredNotes[pos+1];
 	} else {
 		return unalteredNotes[0];
@@ -385,7 +385,7 @@ function nextNote(step){
 
 function nextTwoNotes(step){
 	var pos = unalteredNotes.indexOf(step);
-	if(pos < unalteredNotes.length-3){
+	if(pos < unalteredNotes.length-2){
 		return unalteredNotes[pos+2];
 	} else {
 		return unalteredNotes[0];
